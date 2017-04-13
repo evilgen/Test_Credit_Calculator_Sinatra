@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title
+      | Кредитный онлайн-калькулятор
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+  body
+    .container
+      nav.navbar.navbar-default role="navigation"
+        .navbar-header
+          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="/"
+            | My Website
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a href="/blabla"
+                | Blabla
+            li
+              a href="/something"
+                | Something
+            li
+              a href="/contacts"
+                | Contacts
+      div
+        == yield
+    script src="/vendor/jquery-1.9.1.min.js"
+    script src="/vendor/bootstrap/js/bootstrap.min.js"
