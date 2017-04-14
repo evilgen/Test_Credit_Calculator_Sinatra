@@ -12,24 +12,24 @@ fieldset
     .form-group
       label
         | Процентная ставка (%):
-      input.form-control name="percent" type="text" placeholder="Данные вводятся через точку!"
+      input.form-control name="percent" type="text" placeholder="Данные вводятся через точку!" required = "required" oninvalid="this.setCustomValidity('Укажите процентную ставку')" oninput="setCustomValidity('')" pattern = '\d+(\.\d{2})?' title = 'Допускается положительное число целое или с плавающей точкой'
     .form-group
       label
         | Сумма кредита:
-      input.form-control name="summa" type="text" placeholder="Введите желаемую сумму"
+      input.form-control name="summa" type="text" placeholder="Введите желаемую сумму" required = "required" oninvalid="this.setCustomValidity('Укажите сумму кредита')" oninput="setCustomValidity('')" pattern = '\d+(\.\d{2})?' title = 'Допускается положительное число целое или с плавающей точкой'
     .form-group
       label
         | Метод погашения кредита:
       p
-        input name="standart" type="radio"
+        input name="paymeth" type="radio" value = 0 checked = "checked" required = "required"
         |  Стандартный
       p
-        input name="annuit" type="radio"
+        input name="paymeth" type="radio" value = 1
         |  Аннуитентный (равными частями)
     .form-group
       label
         | Срок кредита (в месяцах):
-      input.form-control name="datetime" type="text" placeholder="Введите число месяцев"
+      input.form-control name="datetime" type="text" placeholder="Введите число месяцев" required = "required" oninvalid="this.setCustomValidity('Укажите срок кредита')" oninput="setCustomValidity('')" pattern = '^([1-9][0-9]*)$' title = 'Допускается только положительное целое число'
     label
       | График платежей:
     button.btn.btn-primary type="submit"
