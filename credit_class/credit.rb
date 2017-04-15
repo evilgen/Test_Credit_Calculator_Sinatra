@@ -49,7 +49,7 @@ class Credit
   end
 
 
-  protected
+  private
 
   #возврат основного долга
   def pogashenie_credita summa, srok
@@ -59,7 +59,7 @@ class Credit
   #начисленные проценты
   def np_standart ostatok, ps
     np = ostatok * ( ps.to_f / 12.0 )
-    pn = (np / 100)
+    np = (np / 100)
   end
 
   #аннуитетный платеж
