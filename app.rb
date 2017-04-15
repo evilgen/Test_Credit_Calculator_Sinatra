@@ -13,11 +13,15 @@ end
 post '/' do
   @credit = Credit.new params[:percent], params[:summa], params[:paymeth], params[:datetime]
   # binding.pry
+  if @credit.paymeth == 0
+    @credit.standart
+  else
+    @credit.annuitet
+	end
 
-
-
-
-  slim :'test'
+  slim :'rezult', credit: @credit
 end
 
-
+get '/contacts' do
+  slim :'contacts'
+end
