@@ -1,6 +1,6 @@
 class Credit
 
-  attr_accessor :rezult, :percent, :summa, :paymeth, :datetime
+  attr_accessor :rezult, :percent, :summa, :paymeth, :datetime, :sum_per, :sum_crd
 
 
   def initialize percent, summa, paymeth, datetime
@@ -8,7 +8,9 @@ class Credit
     @summa 		= summa.to_i * 100
     @paymeth 	= paymeth.to_i
     @datetime = datetime.to_i
-    @rezult = []
+    @rezult   = []
+    @sum_per  = 0
+    @sum_crd  = 0
   end
 
   def standart
@@ -25,6 +27,7 @@ class Credit
 
       @rezult << prety(part)
     end
+    @sum_per, @sum_crd = get_sum @rezult, @sum_per, @sum_crd
   end
 
   def annuitet
@@ -42,6 +45,7 @@ class Credit
 
       @rezult << prety(part)
     end
+    @sum_per, @sum_crd = get_sum @rezult, @sum_per, @sum_crd
   end
 
 
@@ -73,6 +77,17 @@ class Credit
       arr[i] = '%.2f' % ((arr[i] / 100.0).round(2))
     end
     arr
+  end
+
+  # итоговые столбцы
+  def get_sum arr, sum_a, sum_b
+    arr.each do | sub_arr |
+      sum_a = sum_a + sub_arr[2].to_f
+      sum_b = sum_b + sub_arr[3].to_f
+    end
+    sum_a = '%.2f' % (sum_a)
+    sum_b = '%.2f' % (sum_b)
+    return sum_a, sum_b
   end
 
 end
