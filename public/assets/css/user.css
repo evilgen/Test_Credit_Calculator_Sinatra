@@ -1,3 +1,15 @@
 body .container form button {
     margin-left: 25px;
 }
+
+body .container fieldset {
+    border: 1px solid silver;
+    padding: 20px;
+}
+
+body .container fieldset legend {
+    width: auto;
+    border: 0;
+    padding: 0 15px;
+    margin-bottom: 0;
+}
