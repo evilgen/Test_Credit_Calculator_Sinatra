@@ -25,3 +25,9 @@ end
 get '/contacts' do
   slim :'contacts'
 end
+
+
+
+def credit_create_params
+  params.require(:credit).permit( :percent, :summa, :paymeth, :datetime )
+end
